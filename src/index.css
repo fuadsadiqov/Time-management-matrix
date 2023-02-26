@@ -98,22 +98,35 @@ input{
   padding: 10px 15px;
   overflow-x: hidden;
 }
-@media (max-width: 500px){
+@media (max-width: 768px){
   .App{
     width: 100%;
     padding: 30px 20px;
   }
-  .matrix > div{
-    width: 100px;
+  .App .matrix{
+    grid-template-columns: 1fr;
+    width: 100%;
   }
+  .App .matrix > div{
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
   .App form{
     flex-direction: column;
     gap: 10px;
+    width: 100%;
   }
   .App form input{
     border-radius: 7px;
   }
+  .App select{
+    padding: 5px 10px;
+  }
   .App form button{
     border-radius: 7px;
+    width: 100%;
+    padding: 7px 0;
   }
 }
