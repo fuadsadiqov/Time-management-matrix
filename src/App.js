@@ -9,6 +9,7 @@ function App() {
     const storedTodos = JSON.parse(localStorage.getItem("todos"));
     return storedTodos ? storedTodos : { ie: [], ine: [], nie: [], nine: []}
   })
+  const [color, setColor] = useState(false)
     
   const [randomR, setRandomR] = useState(0);
   const [randomG, setRandomG] = useState(0);
@@ -44,7 +45,7 @@ function App() {
   }
   const handleDeleteData = () =>{
     localStorage.clear();
-    setTodos({ie: [], ine: [], nie: [], nine: []})
+      setTodos({ie: [], ine: [], nie: [], nine: []})
   }
   useEffect(() => {
     setRandomR(Math.floor(Math.random() * 256));
@@ -55,9 +56,17 @@ function App() {
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
-
+  const toggleColor = () =>{
+    setColor(prevColor => !prevColor)
+  }
   return (
-  <div style={{backgroundColor: `rgb(${randomR}, ${randomG}, ${randomB})`}} className="page">
+  <div 
+  style={{
+    background: 
+    color ? `linear-gradient(to left top, rgb(${randomR}, ${randomG}, ${randomB}), 
+    rgb(${randomG}, ${randomB}, ${randomR}))`
+    : `rgb(${randomR}, ${randomG}, ${randomB})`}}
+    className="page">
     <div className="App">
         <form onSubmit={handleSubmit}>
             <input required placeholder="Enter text" value={todo} onChange={e => setTodo(e.target.value)} type="text"/>
@@ -77,6 +86,10 @@ function App() {
           <MatrixItem todos={todos.nine} name="Not Important and not urgent" />
         </div>
         <button onClick={handleDeleteData} className="btn delete-btn">Clear All List</button>
+        <label className="color">
+          <span>{color ? 'Static color' : 'Gradient color'}</span>
+          <ion-icon onClick={toggleColor} name="contrast-outline"></ion-icon>
+        </label>
     </div>
    </div>
   );

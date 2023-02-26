@@ -29,10 +29,12 @@ html, body, #root{
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 .App{
+  position: relative;
   background-color: #FFF;
-  padding: 20px;
+  padding: 30px 20px;
   max-width:  1000px;
   margin: 0 auto;
   display: flex;
@@ -74,6 +76,7 @@ input{
   border-bottom-left-radius: 7px;
   border-top-left-radius: 7px;
   font-size: 13px;
+
 }
 .delete-btn{
   margin-top: 10px;
@@ -98,10 +101,22 @@ input{
   padding: 10px 15px;
   overflow-x: hidden;
 }
+.App .color{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.App .color ion-icon{
+  font-size: 19px;
+}
 @media (max-width: 768px){
   .App{
     width: 100%;
-    padding: 30px 20px;
   }
   .App .matrix{
     grid-template-columns: 1fr;
