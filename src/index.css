@@ -42,6 +42,7 @@ html, body, #root{
   border: 1px solid #ddd;
   box-shadow: 5px 5px 43px 0px rgba(0,0,0,0.75);
 }
+
 .App form{
   display: flex;
 }
@@ -96,4 +97,23 @@ input{
   width: 200px;
   padding: 10px 15px;
   overflow-x: hidden;
+}
+@media (max-width: 500px){
+  .App{
+    width: 100%;
+    padding: 30px 20px;
+  }
+  .matrix > div{
+    width: 100px;
+  }
+  .App form{
+    flex-direction: column;
+    gap: 10px;
+  }
+  .App form input{
+    border-radius: 7px;
+  }
+  .App form button{
+    border-radius: 7px;
+  }
 }
